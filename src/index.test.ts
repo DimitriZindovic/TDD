@@ -29,6 +29,12 @@ describe("Cart - total", () => {
     cart.addProduct({ name: "Câble", price: 9.99 });
     expect(cart.getTotal()).toBe(29.98);
   });
+
+  it("devrait retourner 0 si le total est négatif", () => {
+    const cart = new Cart();
+    cart.addProduct({ name: "Remboursement", price: -50 });
+    expect(cart.getTotal()).toBe(0);
+  });
 });
 
 export class Cart {
