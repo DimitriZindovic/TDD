@@ -12,7 +12,13 @@ describe("Cart - total", () => {
 });
 
 export class Cart {
+  private items: { name: string; price: number }[] = [];
+
+  addProduct(product: { name: string; price: number }): void {
+    this.items.push(product);
+  }
+
   getTotal(): number {
-    return 0;
+    return this.items.reduce((sum, p) => sum + p.price, 0);
   }
 }
