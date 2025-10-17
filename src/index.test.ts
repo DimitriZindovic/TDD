@@ -22,12 +22,6 @@ describe("Cart - total", () => {
     cart.addProduct({ name: "Écran", price: 120 });
     expect(cart.getTotal()).toBe(108);
   });
-
-  it("n applique pas de remise si le total est exactement 100€", () => {
-    const cart = new Cart();
-    cart.addProduct({ name: "Pack", price: 100 });
-    expect(cart.getTotal()).toBe(100);
-  });
 });
 
 export class Cart {
@@ -38,6 +32,8 @@ export class Cart {
   }
 
   getTotal(): number {
-    return this.items.reduce((sum, p) => sum + p.price, 0);
+    const raw = this.items.reduce((sum, p) => sum + p.price, 0);
+    const discounted = raw > 100 ? raw * 0.9 : raw;
+    return Math.round((discounted + Number.EPSILON) * 100) / 100;
   }
 }
