@@ -22,6 +22,13 @@ describe("Cart - total", () => {
     cart.addProduct({ name: "Écran", price: 120 });
     expect(cart.getTotal()).toBe(108);
   });
+
+  it("gère correctement les décimales (arrondi 2 décimales)", () => {
+    const cart = new Cart();
+    cart.addProduct({ name: "Livre", price: 19.99 });
+    cart.addProduct({ name: "Câble", price: 9.99 });
+    expect(cart.getTotal()).toBe(29.98);
+  });
 });
 
 export class Cart {
