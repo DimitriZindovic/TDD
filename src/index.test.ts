@@ -16,6 +16,12 @@ describe("Cart - total", () => {
     cart.addProduct({ name: "Souris", price: 40 });
     expect(cart.getTotal()).toBe(100);
   });
+
+  it("applique 10% de remise si le total dépasse strictement 100€", () => {
+    const cart = new Cart();
+    cart.addProduct({ name: "Écran", price: 120 });
+    expect(cart.getTotal()).toBe(108);
+  });
 });
 
 export class Cart {
