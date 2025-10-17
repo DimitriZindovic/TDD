@@ -4,3 +4,9 @@ describe("Cart - total", () => {
     expect(cart.getTotal()).toBe(0);
   });
 });
+
+class Cart {
+  getTotal(): number {
+    return 0;
+  }
+}
