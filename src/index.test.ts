@@ -4,7 +4,7 @@ describe("Cart - total", () => {
     expect(cart.getTotal()).toBe(0);
   });
 
-  it("devrait totaliser le prix d’un seul produit", () => {
+  it("devrait totaliser le prix d'un seul produit", () => {
     const cart = new Cart();
     cart.addProduct({ name: "Livre", price: 25 });
     expect(cart.getTotal()).toBe(25);
@@ -47,6 +47,7 @@ export class Cart {
   getTotal(): number {
     const raw = this.items.reduce((sum, p) => sum + p.price, 0);
     const discounted = raw > 100 ? raw * 0.9 : raw;
-    return Math.round((discounted + Number.EPSILON) * 100) / 100;
+    const total = Math.round((discounted + Number.EPSILON) * 100) / 100;
+    return Math.max(0, total);
   }
 }
