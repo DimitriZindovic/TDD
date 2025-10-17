@@ -9,6 +9,13 @@ describe("Cart - total", () => {
     cart.addProduct({ name: "Livre", price: 25 });
     expect(cart.getTotal()).toBe(25);
   });
+
+  it("devrait totaliser plusieurs produits", () => {
+    const cart = new Cart();
+    cart.addProduct({ name: "Clavier", price: 60 });
+    cart.addProduct({ name: "Souris", price: 40 });
+    expect(cart.getTotal()).toBe(100);
+  });
 });
 
 export class Cart {
