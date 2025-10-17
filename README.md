@@ -5,3 +5,7 @@
 
 3. Stub : fournit des valeurs prédéfinies sans logique ex getUser()
    Fake : implémentation simplifiée mais fonctionnelle ex. un in-memory
+
+Intégration CI/CD :
+
+Qaund on merge une branch dans la main alors on lance les tests et si il ne passe pas alors pas possible de merge dans la main
