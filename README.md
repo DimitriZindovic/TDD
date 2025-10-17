@@ -5,7 +5,7 @@
 
 3. Stub : fournit des valeurs prédéfinies sans logique ex getUser()
 
-   Fake : implémentation simplifiée mais fonctionnelle ex. un in-memory
+   Fake : implémentation simplifiée mais fonctionnelle ex un in-memory
 
 Intégration CI/CD :
 
